@@ -13,6 +13,8 @@ class BasicHomeScreenPresenter implements HomeScreenPresenter {
     model = HomeScreenModel(
         bannerImageList: bannerImageList,
         selectedEventIndex: 0,
+        alliesList: alliesList,
+        whyUsList: whyUsList,
         supportCategoriesList: supportCategoriesList,
         selectedUpcomingEventIndex: 0,
         eventImageList: eventImageList,
@@ -106,6 +108,52 @@ class BasicHomeScreenPresenter implements HomeScreenPresenter {
     {'image': AppAssets.s14, 'title': 'Running Track', 'isSvg': true},
     {'image': AppAssets.s15, 'title': 'Paddle Ball', 'isSvg': false},
     {'image': AppAssets.s16, 'title': 'Pickle Balll', 'isSvg': false},
+  ];
+
+  List alliesList = [
+    AppAssets.ikfLogo,
+    AppAssets.mySportCode,
+    AppAssets.boland,
+    AppAssets.ludimos,
+  ];
+
+  List<Map> whyUsList = <Map>[
+    {
+      "image": AppAssets.ticketing,
+      'header': "Ticketing Experience",
+      'sub_header':
+          "Seamlessly book tickets for your favorite sports events with just a few clicks"
+    },
+    {
+      "image": AppAssets.turfBooking,
+      'header': "Turf Booking",
+      'sub_header':
+          "Effortlessly book turfs for your games and practice sessions anytime, anywhere!"
+    },
+    {
+      "image": AppAssets.lowcommissionrate,
+      'header': "Low Commission Rate",
+      'sub_header':
+          "Enjoy low commission rates and maximize your earnings with every booking!"
+    },
+    {
+      "image": AppAssets.customizedtrials,
+      'header': "Customized Trials",
+      'sub_header':
+          "Collaborate to list your Selections and Trials through our Customized Solutions!"
+    },
+    {
+      "image": AppAssets.dedicated,
+      'header': "Dedicated Partner Support",
+      'sub_header':
+          "Our Partner Success Team is here to help you optimize your listings, answer queries, and ensure smooth operations!"
+    },
+    {
+      "image": AppAssets.audience,
+      'header': "TIncreased Visibility and Audience Reach",
+      'sub_header':
+          "Get access to a large community of sports enthusiasts actively searching for events and turf bookings!"
+    },
   ];
 
   @override

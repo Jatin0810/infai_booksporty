@@ -27,4 +27,25 @@ class AppAssets {
   static const String s14 = "assets/images/s14.svg";
   static const String s15 = "assets/images/s15.png";
   static const String s16 = "assets/images/s16.png";
+
+  static const String boland = "assets/images/Boland-Cricket-logo.png";
+  static const String ludimos = "assets/images/Ludimos-logo.png";
+  static const String ikfLogo = "assets/images/Main-IKF-Logo.png";
+  static const String mySportCode = "assets/images/my_sports_code.png";
+
+  static const String audience = "assets/images/Audience.png";
+  static const String customizedtrials = "assets/images/customized_trials.png";
+  static const String dedicated = "assets/images/dedicated.png";
+  static const String lowcommissionrate =
+      "assets/images/low_commission_rate.png";
+  static const String ticketing = "assets/images/ticketing.png";
+  static const String turfBooking = "assets/images/turf_booking.png";
+
+  static const String amazonPay = "assets/images/amazon-pay.png";
+  static const String googlepay = "assets/images/google-pay.png";
+  static const String master = "assets/images/master.png";
+  static const String paypal = "assets/images/paypal.png";
+  static const String visa = "assets/images/visa.png";
+  static const String symbols = "assets/images/symbols.png";
+  static const String skrill = "assets/images/skrill.png";
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:infai_demo_web/modules/home/home_screen.dart';
 import 'package:infai_demo_web/widget/appbars/home_app_bar.dart';
+import 'package:infai_demo_web/widget/footer/footer.dart';
 
 class MainHomePage extends StatefulWidget {
   const MainHomePage({super.key});
@@ -18,7 +19,8 @@ class _MainHomePageState extends State<MainHomePage> {
           HomeAppBar(
             onTap: () {},
           ),
-          Expanded(child: HomeScreen())
+          Expanded(child: HomeScreen()),
+         
         ],
       ),
     );

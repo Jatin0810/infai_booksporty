@@ -8,6 +8,7 @@ import 'package:infai_demo_web/constants/app_text_style.dart';
 import 'package:infai_demo_web/modules/home/home_screen_model.dart';
 import 'package:infai_demo_web/modules/home/home_screen_presenter.dart';
 import 'package:infai_demo_web/modules/home/home_screen_view.dart';
+import 'package:infai_demo_web/widget/footer/footer.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -377,7 +378,108 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
                 ],
               ),
             ),
-            Container()
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 20),
+              width: MediaQuery.of(context).size.width,
+              color: AppColors.lightGrey,
+              child: Column(
+                children: [
+                  Text(
+                    "Our",
+                    style: AppTextStyle.black26,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "Collaborators & Allies",
+                    style: AppTextStyle.black36
+                        .copyWith(color: AppColors.appColors),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 20),
+              color: AppColors.whiteColor,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: List.generate(model.alliesList.length, (index) {
+                  return Image.asset(
+                    model.alliesList[index],
+                    height: 60,
+                  );
+                }),
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Container(
+              color: AppColors.lightGrey,
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              child: Column(
+                children: [
+                  Text(
+                    "Why Us?",
+                    style: AppTextStyle.black26,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "One Stop Shop for all your Sports Needs!",
+                    style: AppTextStyle.black36
+                        .copyWith(color: AppColors.appColors),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  GridView.builder(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: model.whyUsList.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          childAspectRatio: 2.3,
+                          crossAxisSpacing: 10,
+                          mainAxisSpacing: 10,
+                          crossAxisCount: 3),
+                      itemBuilder: (context, index) {
+                        return Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 12),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: AppColors.whiteColor),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Image.asset(
+                                model.whyUsList[index]['image'],
+                                height: 70,
+                              ),
+                              SizedBox(
+                                height: 4,
+                              ),
+                              Text(
+                                model.whyUsList[index]['header'],
+                                style: AppTextStyle.bold20,
+                              ),
+                              SizedBox(
+                                height: 4,
+                              ),
+                              Text(
+                                model.whyUsList[index]['sub_header'],
+                                style: AppTextStyle.regular16,
+                              ),
+                            ],
+                          ),
+                        );
+                      })
+                ],
+              ),
+            ),
+            Footer(),
           ],
         ),
       ),
