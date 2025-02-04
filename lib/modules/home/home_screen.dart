@@ -353,31 +353,25 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           childAspectRatio: 1.2, crossAxisCount: 6),
                       itemBuilder: (context, index) {
-                        return SizedBox(
-                          height: 100,
-                          child: Column(
-                            children: [
-                              model.supportCategoriesList[index]['isSvg'] ==
-                                      false
-                                  ? Image.asset(
-                                      model.supportCategoriesList[index]
-                                          ['image'],
-                                      height: 70,
-                                    )
-                                  : SvgPicture.asset(
-                                      model.supportCategoriesList[index]
-                                          ['image'],
-                                      height: 70,
-                                    ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                model.supportCategoriesList[index]['title'],
-                                style: AppTextStyle.semiBold16,
-                              )
-                            ],
-                          ),
+                        return Column(
+                          children: [
+                            model.supportCategoriesList[index]['isSvg'] == false
+                                ? Image.asset(
+                                    model.supportCategoriesList[index]['image'],
+                                    height: 70,
+                                  )
+                                : SvgPicture.asset(
+                                    model.supportCategoriesList[index]['image'],
+                                    height: 70,
+                                  ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              model.supportCategoriesList[index]['title'],
+                              style: AppTextStyle.semiBold16,
+                            )
+                          ],
                         );
                       })
                 ],
@@ -391,30 +385,27 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
   }
 
   Widget customCarouselSliderWidget(List<Map<dynamic, dynamic>> listData) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: CarouselSlider(
-        options: CarouselOptions(
-            autoPlay: true,
-            height: 300.0,
-            scrollPhysics: NeverScrollableScrollPhysics(),
-            disableCenter: true,
-            aspectRatio: 0.4,
-            viewportFraction: 0.4),
-        items: listData.map((i) {
-          return Builder(
-            builder: (BuildContext context) {
-              return customListDataWidget(
-                date: i['Date'],
-                image: i['image'],
-                location: i['location'],
-                price: i['ticket'],
-                title: i['title'],
-              );
-            },
-          );
-        }).toList(),
-      ),
+    return CarouselSlider(
+      options: CarouselOptions(
+          autoPlay: true,
+          height: 300.0,
+          scrollPhysics: NeverScrollableScrollPhysics(),
+          disableCenter: true,
+          aspectRatio: 0.4,
+          viewportFraction: 0.4),
+      items: listData.map((i) {
+        return Builder(
+          builder: (BuildContext context) {
+            return customListDataWidget(
+              date: i['Date'],
+              image: i['image'],
+              location: i['location'],
+              price: i['ticket'],
+              title: i['title'],
+            );
+          },
+        );
+      }).toList(),
     );
   }
 
@@ -433,15 +424,13 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
-          Expanded(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(30),
-              child: Image.asset(
-                image,
-                fit: BoxFit.fill,
-                height: 300,
-                width: 700,
-              ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(30),
+            child: Image.asset(
+              image,
+              fit: BoxFit.fill,
+              height: 300,
+              width: 700,
             ),
           ),
           Container(

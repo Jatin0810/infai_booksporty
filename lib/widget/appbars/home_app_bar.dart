@@ -55,9 +55,11 @@ class _HomeAppBarState extends State<HomeAppBar> {
                     setState(() {});
                   }),
                   child: InkWell(
-                    onTap: () {
+                    onTap: (){
                       selectedIndex = index;
-                      setState(() {});
+                      setState(() {
+                        
+                      });
                     },
                     child: Text(
                       appbarTitle[index],
