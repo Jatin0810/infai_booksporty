@@ -18,6 +18,8 @@ class BasicHomeScreenPresenter implements HomeScreenPresenter {
         supportCategoriesList: supportCategoriesList,
         selectedUpcomingEventIndex: 0,
         eventImageList: eventImageList,
+        isEventHover: false,
+        isTurfHover: false,
         trufImageList: trufImageList,
         trialImageList: trialImageList);
     view = HomeScreenView();

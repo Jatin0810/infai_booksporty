@@ -35,6 +35,9 @@ class AppColors {
   static const Color collectBgColor = Color(0xffFACA72);
   static const Color orangeGiftCardFilterColor = Color(0xffE4A470);
   static const Color lightBlueColor = Color(0xffC9EDFF);
+  static const Color darkBlueColor = Color(0xff0d6efd);
+
+
 
   //gradientCost
   static const LinearGradient gradientThemeColor = LinearGradient(

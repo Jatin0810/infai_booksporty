@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:infai_demo_web/constants/app_colors.dart';
 import 'package:infai_demo_web/constants/app_const_assets.dart';
 import 'package:infai_demo_web/constants/app_text_style.dart';
+import 'package:infai_demo_web/constants/extension.dart';
 
 class Footer extends StatefulWidget {
   const Footer({super.key});
@@ -29,127 +30,256 @@ class _FooterState extends State<Footer> {
           SizedBox(
             height: 30,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(
-                width: 300,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+          context.isWebSiteScreen
+              ? Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      "Address",
-                      style: AppTextStyle.semiBold16
-                          .copyWith(color: AppColors.whiteColor),
+                    SizedBox(
+                      width: 300,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Address",
+                            style: AppTextStyle.semiBold16
+                                .copyWith(color: AppColors.whiteColor),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text(
+                            "INDIA",
+                            style: AppTextStyle.semiBold16
+                                .copyWith(color: AppColors.whiteColor),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text(
+                            "A-608, 6th Floor, Kailas Business Park,Hiranandani Vikhroli Link Road, VS Marg,Vikhroli West- Mumbai- 400079",
+                            style: AppTextStyle.semiBold14
+                                .copyWith(color: AppColors.whiteColor),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                "Email: ",
+                                style: AppTextStyle.black16
+                                    .copyWith(color: AppColors.whiteColor),
+                              ),
+                              Text(
+                                "[email protected]",
+                                style: AppTextStyle.black16
+                                    .copyWith(color: Colors.blue.shade900),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(
-                      height: 8,
+                      width: 300,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "SOUTH AFRICA OFFICE:",
+                            style: AppTextStyle.semiBold16
+                                .copyWith(color: AppColors.whiteColor),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text(
+                            "18 Merrick House, Long street, Knysna, South Africa.",
+                            style: AppTextStyle.semiBold14
+                                .copyWith(color: AppColors.whiteColor),
+                          ),
+                        ],
+                      ),
                     ),
-                    Text(
-                      "INDIA",
-                      style: AppTextStyle.semiBold16
-                          .copyWith(color: AppColors.whiteColor),
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Text(
-                      "A-608, 6th Floor, Kailas Business Park,Hiranandani Vikhroli Link Road, VS Marg,Vikhroli West- Mumbai- 400079",
-                      style: AppTextStyle.semiBold14
-                          .copyWith(color: AppColors.whiteColor),
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Row(
+                    Column(
                       children: [
                         Text(
-                          "Email: ",
-                          style: AppTextStyle.black16
+                          "Disclaimer",
+                          style: AppTextStyle.semiBold16
                               .copyWith(color: AppColors.whiteColor),
                         ),
+                        SizedBox(
+                          height: 4,
+                        ),
                         Text(
-                          "[email protected]",
-                          style: AppTextStyle.black16
-                              .copyWith(color: Colors.blue.shade900),
-                        )
+                          "Frequently asked questions",
+                          style: AppTextStyle.semiBold16
+                              .copyWith(color: AppColors.whiteColor),
+                        ),
+                        SizedBox(
+                          height: 4,
+                        ),
+                        Text(
+                          "Partner with us",
+                          style: AppTextStyle.semiBold16
+                              .copyWith(color: AppColors.whiteColor),
+                        ),
+                        SizedBox(
+                          height: 4,
+                        ),
+                        Text(
+                          "Terms & Conditions",
+                          style: AppTextStyle.semiBold16
+                              .copyWith(color: AppColors.whiteColor),
+                        ),
+                        SizedBox(
+                          height: 4,
+                        ),
+                        Text(
+                          "Terms of Use",
+                          style: AppTextStyle.semiBold16
+                              .copyWith(color: AppColors.whiteColor),
+                        ),
+                        SizedBox(
+                          height: 4,
+                        ),
+                        Text(
+                          "Privacy Policy",
+                          style: AppTextStyle.semiBold16
+                              .copyWith(color: AppColors.whiteColor),
+                        ),
+                      ],
+                    ),
+                  ],
+                )
+              : Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: 300,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Address",
+                            style: AppTextStyle.semiBold16
+                                .copyWith(color: AppColors.whiteColor),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text(
+                            "INDIA",
+                            style: AppTextStyle.semiBold16
+                                .copyWith(color: AppColors.whiteColor),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text(
+                            "A-608, 6th Floor, Kailas Business Park,Hiranandani Vikhroli Link Road, VS Marg,Vikhroli West- Mumbai- 400079",
+                            style: AppTextStyle.semiBold14
+                                .copyWith(color: AppColors.whiteColor),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                "Email: ",
+                                style: AppTextStyle.black16
+                                    .copyWith(color: AppColors.whiteColor),
+                              ),
+                              Text(
+                                "[email protected]",
+                                style: AppTextStyle.black16
+                                    .copyWith(color: Colors.blue.shade900),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    SizedBox(
+                      width: 300,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "SOUTH AFRICA OFFICE:",
+                            style: AppTextStyle.semiBold16
+                                .copyWith(color: AppColors.whiteColor),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text(
+                            "18 Merrick House, Long street, Knysna, South Africa.",
+                            style: AppTextStyle.semiBold14
+                                .copyWith(color: AppColors.whiteColor),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Disclaimer",
+                          style: AppTextStyle.semiBold16
+                              .copyWith(color: AppColors.whiteColor),
+                        ),
+                        SizedBox(
+                          height: 4,
+                        ),
+                        Text(
+                          "Frequently asked questions",
+                          style: AppTextStyle.semiBold16
+                              .copyWith(color: AppColors.whiteColor),
+                        ),
+                        SizedBox(
+                          height: 4,
+                        ),
+                        Text(
+                          "Partner with us",
+                          style: AppTextStyle.semiBold16
+                              .copyWith(color: AppColors.whiteColor),
+                        ),
+                        SizedBox(
+                          height: 4,
+                        ),
+                        Text(
+                          "Terms & Conditions",
+                          style: AppTextStyle.semiBold16
+                              .copyWith(color: AppColors.whiteColor),
+                        ),
+                        SizedBox(
+                          height: 4,
+                        ),
+                        Text(
+                          "Terms of Use",
+                          style: AppTextStyle.semiBold16
+                              .copyWith(color: AppColors.whiteColor),
+                        ),
+                        SizedBox(
+                          height: 4,
+                        ),
+                        Text(
+                          "Privacy Policy",
+                          style: AppTextStyle.semiBold16
+                              .copyWith(color: AppColors.whiteColor),
+                        ),
                       ],
                     ),
                   ],
                 ),
-              ),
-              SizedBox(
-                width: 300,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "SOUTH AFRICA OFFICE:",
-                      style: AppTextStyle.semiBold16
-                          .copyWith(color: AppColors.whiteColor),
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Text(
-                      "18 Merrick House, Long street, Knysna, South Africa.",
-                      style: AppTextStyle.semiBold14
-                          .copyWith(color: AppColors.whiteColor),
-                    ),
-                  ],
-                ),
-              ),
-              Column(
-                children: [
-                  Text(
-                    "Disclaimer",
-                    style: AppTextStyle.semiBold16
-                        .copyWith(color: AppColors.whiteColor),
-                  ),
-                  SizedBox(
-                    height: 4,
-                  ),
-                  Text(
-                    "Frequently asked questions",
-                    style: AppTextStyle.semiBold16
-                        .copyWith(color: AppColors.whiteColor),
-                  ),
-                  SizedBox(
-                    height: 4,
-                  ),
-                  Text(
-                    "Partner with us",
-                    style: AppTextStyle.semiBold16
-                        .copyWith(color: AppColors.whiteColor),
-                  ),
-                  SizedBox(
-                    height: 4,
-                  ),
-                  Text(
-                    "Terms & Conditions",
-                    style: AppTextStyle.semiBold16
-                        .copyWith(color: AppColors.whiteColor),
-                  ),
-                  SizedBox(
-                    height: 4,
-                  ),
-                  Text(
-                    "Terms of Use",
-                    style: AppTextStyle.semiBold16
-                        .copyWith(color: AppColors.whiteColor),
-                  ),
-                  SizedBox(
-                    height: 4,
-                  ),
-                  Text(
-                    "Privacy Policy",
-                    style: AppTextStyle.semiBold16
-                        .copyWith(color: AppColors.whiteColor),
-                  ),
-                ],
-              ),
-            ],
-          ),
           SizedBox(
             height: 10,
           ),
@@ -160,87 +290,101 @@ class _FooterState extends State<Footer> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Container(
-                padding: EdgeInsets.symmetric(vertical: 2, horizontal: 10),
-                margin: EdgeInsets.symmetric(horizontal: 8),
+                padding: EdgeInsets.symmetric(
+                    vertical: 2, horizontal: context.isWebSiteScreen ? 10 : 6),
+                margin: EdgeInsets.symmetric(
+                    horizontal: context.isWebSiteScreen ? 8 : 4),
                 decoration: BoxDecoration(
                   color: AppColors.whiteColor,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Image.asset(
                   AppAssets.visa,
-                  height: 20,
+                  height:context.isWebSiteScreen ? 20 : 14,
                 ),
               ),
               Container(
-                padding: EdgeInsets.symmetric(vertical: 2, horizontal: 10),
-                 margin: EdgeInsets.symmetric(horizontal: 8),
+                padding: EdgeInsets.symmetric(
+                    vertical: 2, horizontal: context.isWebSiteScreen ? 10 : 6),
+                margin: EdgeInsets.symmetric(
+                    horizontal: context.isWebSiteScreen ? 8 : 4),
                 decoration: BoxDecoration(
                   color: AppColors.whiteColor,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Image.asset(
                   AppAssets.master,
-                  height: 20,
+                  height:context.isWebSiteScreen ? 20 : 14,
                 ),
               ),
               Container(
-                padding: EdgeInsets.symmetric(vertical: 2, horizontal: 10),
-                 margin: EdgeInsets.symmetric(horizontal: 8),
+                padding: EdgeInsets.symmetric(
+                    vertical: 2, horizontal: context.isWebSiteScreen ? 10 : 6),
+                margin: EdgeInsets.symmetric(
+                    horizontal: context.isWebSiteScreen ? 8 : 4),
                 decoration: BoxDecoration(
                   color: AppColors.whiteColor,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Image.asset(
                   AppAssets.amazonPay,
-                  height: 20,
+                  height:context.isWebSiteScreen ? 20 : 14,
                 ),
               ),
               Container(
-                padding: EdgeInsets.symmetric(vertical: 2, horizontal: 10),
-                 margin: EdgeInsets.symmetric(horizontal: 8),
+                padding: EdgeInsets.symmetric(
+                    vertical: 2, horizontal: context.isWebSiteScreen ? 10 : 6),
+                margin: EdgeInsets.symmetric(
+                    horizontal: context.isWebSiteScreen ? 8 : 4),
                 decoration: BoxDecoration(
                   color: AppColors.whiteColor,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Image.asset(
                   AppAssets.skrill,
-                  height: 20,
+                  height:context.isWebSiteScreen ? 20 : 14,
                 ),
               ),
               Container(
-                padding: EdgeInsets.symmetric(vertical: 2, horizontal: 10),
-                 margin: EdgeInsets.symmetric(horizontal: 8),
+                padding: EdgeInsets.symmetric(
+                    vertical: 2, horizontal: context.isWebSiteScreen ? 10 : 6),
+                margin: EdgeInsets.symmetric(
+                    horizontal: context.isWebSiteScreen ? 8 : 4),
                 decoration: BoxDecoration(
                   color: AppColors.whiteColor,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Image.asset(
                   AppAssets.symbols,
-                  height: 20,
+                  height:context.isWebSiteScreen ? 20 : 14,
                 ),
               ),
               Container(
-                padding: EdgeInsets.symmetric(vertical: 2, horizontal: 10),
-                 margin: EdgeInsets.symmetric(horizontal: 8),
+                padding: EdgeInsets.symmetric(
+                    vertical: 2, horizontal: context.isWebSiteScreen ? 10 : 6),
+                margin: EdgeInsets.symmetric(
+                    horizontal: context.isWebSiteScreen ? 8 : 4),
                 decoration: BoxDecoration(
                   color: AppColors.whiteColor,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Image.asset(
                   AppAssets.paypal,
-                  height: 20,
+                  height:context.isWebSiteScreen ? 20 : 14,
                 ),
               ),
               Container(
-                padding: EdgeInsets.symmetric(vertical: 2, horizontal: 10),
-                 margin: EdgeInsets.symmetric(horizontal: 8),
+                padding: EdgeInsets.symmetric(
+                    vertical: 2, horizontal: context.isWebSiteScreen ? 10 : 6),
+                margin: EdgeInsets.symmetric(
+                    horizontal: context.isWebSiteScreen ? 8 : 4),
                 decoration: BoxDecoration(
                   color: AppColors.whiteColor,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Image.asset(
                   AppAssets.googlepay,
-                  height: 20,
+                  height:context.isWebSiteScreen ? 20 : 14,
                 ),
               ),
             ],

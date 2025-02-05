@@ -20,7 +20,6 @@ class _MainHomePageState extends State<MainHomePage> {
             onTap: () {},
           ),
           Expanded(child: HomeScreen()),
-         
         ],
       ),
     );

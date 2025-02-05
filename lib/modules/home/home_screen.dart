@@ -1,10 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:infai_demo_web/constants/app_colors.dart';
 import 'package:infai_demo_web/constants/app_const_assets.dart';
 import 'package:infai_demo_web/constants/app_text_style.dart';
+import 'package:infai_demo_web/constants/extension.dart';
 import 'package:infai_demo_web/modules/home/home_screen_model.dart';
 import 'package:infai_demo_web/modules/home/home_screen_presenter.dart';
 import 'package:infai_demo_web/modules/home/home_screen_view.dart';
@@ -38,17 +40,20 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackColor,
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(
+            parent: AlwaysScrollableScrollPhysics()),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CarouselSlider(
               options: CarouselOptions(
                   autoPlay: true,
-                  height: 200.0,
+                  height: context.isWebSiteScreen
+                      ? 250
+                      : MediaQuery.of(context).size.width * 0.35,
                   aspectRatio: 1,
+                  scrollPhysics: NeverScrollableScrollPhysics(),
                   viewportFraction: 1),
               items: model.bannerImageList.map((i) {
                 return Builder(
@@ -63,8 +68,9 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
                       ),
                       child: Text(
                         "Book Your \nTickets, Trails and Turfs!!!",
-                        style: AppTextStyle.black34
-                            .copyWith(color: AppColors.backgroundColor),
+                        style: AppTextStyle.black34.copyWith(
+                            fontSize: context.isWebSiteScreen ? 64 : 30,
+                            color: AppColors.backgroundColor),
                       ),
                     );
                   },
@@ -78,8 +84,9 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(
                 "Featured Events",
-                style: AppTextStyle.black30
-                    .copyWith(color: AppColors.backgroundColor),
+                style: AppTextStyle.black40.copyWith(
+                    fontSize: context.isWebSiteScreen ? 40 : 20,
+                    color: AppColors.backgroundColor),
               ),
             ),
             SizedBox(
@@ -95,8 +102,8 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
                       setState(() {});
                     },
                     child: Container(
-                      height: 60,
-                      width: 160,
+                      height: context.isWebSiteScreen ? 60 : 40,
+                      width: context.isWebSiteScreen ? 160 : 100,
                       decoration: BoxDecoration(
                         color: model.selectedEventIndex == 0
                             ? AppColors.appColors
@@ -110,8 +117,9 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
                       child: Center(
                         child: Text(
                           "Events",
-                          style: AppTextStyle.semiBold18
-                              .copyWith(color: AppColors.whiteColor),
+                          style: AppTextStyle.semiBold24.copyWith(
+                              fontSize: context.isWebSiteScreen ? 24 : 14,
+                              color: AppColors.whiteColor),
                         ),
                       ),
                     ),
@@ -122,8 +130,8 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
                       setState(() {});
                     },
                     child: Container(
-                      height: 60,
-                      width: 160,
+                      height: context.isWebSiteScreen ? 60 : 40,
+                      width: context.isWebSiteScreen ? 160 : 100,
                       decoration: BoxDecoration(
                         color: model.selectedEventIndex == 1
                             ? AppColors.appColors
@@ -137,15 +145,16 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
                       child: Center(
                         child: Text(
                           "Trials",
-                          style: AppTextStyle.semiBold18
-                              .copyWith(color: AppColors.whiteColor),
+                          style: AppTextStyle.semiBold24.copyWith(
+                              fontSize: context.isWebSiteScreen ? 24 : 14,
+                              color: AppColors.whiteColor),
                         ),
                       ),
                     ),
                   ),
                   Expanded(
                     child: Container(
-                      height: 60,
+                      height: context.isWebSiteScreen ? 60 : 40,
                       decoration: BoxDecoration(
                         border: Border(
                           bottom: BorderSide(color: AppColors.whiteColor),
@@ -169,8 +178,9 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(
                 "Upcoming Events",
-                style: AppTextStyle.black30
-                    .copyWith(color: AppColors.backgroundColor),
+                style: AppTextStyle.black40.copyWith(
+                    fontSize: context.isWebSiteScreen ? 40 : 20,
+                    color: AppColors.backgroundColor),
               ),
             ),
             SizedBox(
@@ -186,8 +196,8 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
                       setState(() {});
                     },
                     child: Container(
-                      height: 60,
-                      width: 160,
+                      height: context.isWebSiteScreen ? 60 : 40,
+                      width: context.isWebSiteScreen ? 160 : 100,
                       decoration: BoxDecoration(
                         color: model.selectedUpcomingEventIndex == 0
                             ? AppColors.appColors
@@ -201,8 +211,9 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
                       child: Center(
                         child: Text(
                           "Events",
-                          style: AppTextStyle.semiBold18
-                              .copyWith(color: AppColors.whiteColor),
+                          style: AppTextStyle.semiBold24.copyWith(
+                              fontSize: context.isWebSiteScreen ? 24 : 14,
+                              color: AppColors.whiteColor),
                         ),
                       ),
                     ),
@@ -213,8 +224,8 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
                       setState(() {});
                     },
                     child: Container(
-                      height: 60,
-                      width: 160,
+                      height: context.isWebSiteScreen ? 60 : 40,
+                      width: context.isWebSiteScreen ? 160 : 100,
                       decoration: BoxDecoration(
                         color: model.selectedUpcomingEventIndex == 1
                             ? AppColors.appColors
@@ -228,15 +239,16 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
                       child: Center(
                         child: Text(
                           "Trials",
-                          style: AppTextStyle.semiBold18
-                              .copyWith(color: AppColors.whiteColor),
+                          style: AppTextStyle.semiBold24.copyWith(
+                              fontSize: context.isWebSiteScreen ? 24 : 14,
+                              color: AppColors.whiteColor),
                         ),
                       ),
                     ),
                   ),
                   Expanded(
                     child: Container(
-                      height: 60,
+                      height: context.isWebSiteScreen ? 60 : 40,
                       decoration: BoxDecoration(
                         border: Border(
                           bottom: BorderSide(color: AppColors.whiteColor),
@@ -263,8 +275,9 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
                 children: [
                   Text(
                     "Book Turfs",
-                    style: AppTextStyle.black30
-                        .copyWith(color: AppColors.backgroundColor),
+                    style: AppTextStyle.black40.copyWith(
+                        fontSize: context.isWebSiteScreen ? 40 : 20,
+                        color: AppColors.backgroundColor),
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 4),
@@ -274,8 +287,9 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
                     ),
                     child: Text(
                       "Select Location",
-                      style: AppTextStyle.regular14
-                          .copyWith(color: AppColors.whiteColor),
+                      style: AppTextStyle.semiBold24.copyWith(
+                          fontSize: context.isWebSiteScreen ? 24 : 14,
+                          color: AppColors.whiteColor),
                     ),
                   ),
                 ],
@@ -290,23 +304,24 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
                 children: [
                   InkWell(
                     child: Container(
-                      height: 60,
-                      width: 160,
+                      height: context.isWebSiteScreen ? 60 : 40,
+                      width: context.isWebSiteScreen ? 160 : 100,
                       decoration: BoxDecoration(
                         color: AppColors.appColors,
                       ),
                       child: Center(
                         child: Text(
                           "Turfs",
-                          style: AppTextStyle.semiBold18
-                              .copyWith(color: AppColors.whiteColor),
+                          style: AppTextStyle.semiBold24.copyWith(
+                              fontSize: context.isWebSiteScreen ? 24 : 14,
+                              color: AppColors.whiteColor),
                         ),
                       ),
                     ),
                   ),
                   Expanded(
                     child: Container(
-                      height: 60,
+                      height: context.isWebSiteScreen ? 60 : 40,
                       decoration: BoxDecoration(
                         border: Border(
                           bottom: BorderSide(color: AppColors.whiteColor),
@@ -352,7 +367,8 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
                       physics: NeverScrollableScrollPhysics(),
                       itemCount: model.supportCategoriesList.length,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          childAspectRatio: 1.2, crossAxisCount: 6),
+                          childAspectRatio: context.isWebSiteScreen ? 1.2 : 2,
+                          crossAxisCount: context.isWebSiteScreen ? 6 : 1),
                       itemBuilder: (context, index) {
                         return Column(
                           children: [
@@ -393,27 +409,38 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
                   ),
                   Text(
                     "Collaborators & Allies",
-                    style: AppTextStyle.black36
-                        .copyWith(color: AppColors.appColors),
+                    style: AppTextStyle.black36.copyWith(
+                        fontSize: context.isWebSiteScreen ? 36 : 26,
+                        color: AppColors.appColors),
                   )
                 ],
               ),
             ),
             Container(
               padding: EdgeInsets.symmetric(vertical: 20),
+              width: MediaQuery.of(context).size.width,
               color: AppColors.whiteColor,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: List.generate(model.alliesList.length, (index) {
-                  return Image.asset(
-                    model.alliesList[index],
-                    height: 60,
-                  );
-                }),
-              ),
-            ),
-            SizedBox(
-              height: 30,
+              child: context.isWebSiteScreen
+                  ? Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: List.generate(model.alliesList.length, (index) {
+                        return Image.asset(
+                          model.alliesList[index],
+                          height: 60,
+                        );
+                      }),
+                    )
+                  : Column(
+                      children: List.generate(model.alliesList.length, (index) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 20),
+                          child: Image.asset(
+                            model.alliesList[index],
+                            height: 40,
+                          ),
+                        );
+                      }),
+                    ),
             ),
             Container(
               color: AppColors.lightGrey,
@@ -422,15 +449,19 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
                 children: [
                   Text(
                     "Why Us?",
-                    style: AppTextStyle.black26,
+                    style: context.isWebSiteScreen
+                        ? AppTextStyle.regular16
+                        : AppTextStyle.black26,
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   Text(
                     "One Stop Shop for all your Sports Needs!",
-                    style: AppTextStyle.black36
-                        .copyWith(color: AppColors.appColors),
+                    textAlign: TextAlign.center,
+                    style: AppTextStyle.black36.copyWith(
+                        fontSize: context.isWebSiteScreen ? 36 : 26,
+                        color: AppColors.appColors),
                   ),
                   SizedBox(
                     height: 10,
@@ -443,7 +474,7 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
                           childAspectRatio: 2.3,
                           crossAxisSpacing: 10,
                           mainAxisSpacing: 10,
-                          crossAxisCount: 3),
+                          crossAxisCount: context.isWebSiteScreen ? 3 : 1),
                       itemBuilder: (context, index) {
                         return Container(
                           padding: EdgeInsets.symmetric(
@@ -456,21 +487,25 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
                             children: [
                               Image.asset(
                                 model.whyUsList[index]['image'],
-                                height: 70,
+                                height: context.isWebSiteScreen ? 70 : 40,
                               ),
                               SizedBox(
                                 height: 4,
                               ),
                               Text(
                                 model.whyUsList[index]['header'],
-                                style: AppTextStyle.bold20,
+                                style: context.isWebSiteScreen
+                                    ? AppTextStyle.bold20
+                                    : AppTextStyle.black16,
                               ),
                               SizedBox(
                                 height: 4,
                               ),
                               Text(
                                 model.whyUsList[index]['sub_header'],
-                                style: AppTextStyle.regular16,
+                                style: context.isWebSiteScreen
+                                    ? AppTextStyle.regular16
+                                    : AppTextStyle.black12,
                               ),
                             ],
                           ),
@@ -479,6 +514,190 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
                 ],
               ),
             ),
+            context.isWebSiteScreen
+                ? Container(
+                    color: AppColors.appColors,
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            'Register Your Sports Events, Selections & Turfs With Us',
+                            style: AppTextStyle.semiBold22
+                                .copyWith(color: AppColors.whiteColor),
+                          ),
+                        ),
+                        MouseRegion(
+                          onEnter: (_) => setState(() {
+                            model.isEventHover = true;
+                            setState(() {});
+                          }),
+                          onExit: (_) => setState(() {
+                            model.isEventHover = false;
+                            setState(() {});
+                          }),
+                          child: Container(
+                            width: 180,
+                            height: 45,
+                            margin: EdgeInsets.symmetric(horizontal: 10),
+                            decoration: BoxDecoration(
+                              border:
+                                  Border.all(color: AppColors.darkBlueColor),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey,
+                                  blurRadius: 5.0,
+                                ),
+                              ],
+                              color: model.isEventHover == true
+                                  ? AppColors.darkBlueColor
+                                  : AppColors.whiteColor,
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: Center(
+                              child: Text(
+                                'Event',
+                                style: AppTextStyle.black18.copyWith(
+                                    color: model.isEventHover == true
+                                        ? AppColors.whiteColor
+                                        : AppColors.blackColor),
+                              ),
+                            ),
+                          ),
+                        ),
+                        MouseRegion(
+                          onEnter: (_) => setState(() {
+                            model.isTurfHover = true;
+                            setState(() {});
+                          }),
+                          onExit: (_) => setState(() {
+                            model.isTurfHover = false;
+                            setState(() {});
+                          }),
+                          child: Container(
+                            width: 180,
+                            height: 45,
+                            margin: EdgeInsets.symmetric(horizontal: 10),
+                            decoration: BoxDecoration(
+                              border:
+                                  Border.all(color: AppColors.darkBlueColor),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey,
+                                  blurRadius: 5.0,
+                                ),
+                              ],
+                              color: model.isTurfHover == true
+                                  ? AppColors.darkBlueColor
+                                  : AppColors.whiteColor,
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: Center(
+                              child: Text(
+                                'TURF',
+                                style: AppTextStyle.black18.copyWith(
+                                    color: model.isTurfHover == true
+                                        ? AppColors.whiteColor
+                                        : AppColors.blackColor),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                : Container(
+                    color: AppColors.appColors,
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          'Register Your Sports Events, Selections & Turfs With Us',
+                          textAlign: TextAlign.center,
+                          style: AppTextStyle.semiBold22
+                              .copyWith(color: AppColors.whiteColor),
+                        ),
+                        MouseRegion(
+                          onEnter: (_) => setState(() {
+                            model.isEventHover = true;
+                            setState(() {});
+                          }),
+                          onExit: (_) => setState(() {
+                            model.isEventHover = false;
+                            setState(() {});
+                          }),
+                          child: Container(
+                            height: 45,
+                            margin: EdgeInsets.symmetric(horizontal: 10),
+                            decoration: BoxDecoration(
+                              border:
+                                  Border.all(color: AppColors.darkBlueColor),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey,
+                                  blurRadius: 5.0,
+                                ),
+                              ],
+                              color: model.isEventHover == true
+                                  ? AppColors.darkBlueColor
+                                  : AppColors.whiteColor,
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: Center(
+                              child: Text(
+                                'Event',
+                                style: AppTextStyle.black18.copyWith(
+                                    color: model.isEventHover == true
+                                        ? AppColors.whiteColor
+                                        : AppColors.blackColor),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        MouseRegion(
+                          onEnter: (_) => setState(() {
+                            model.isTurfHover = true;
+                            setState(() {});
+                          }),
+                          onExit: (_) => setState(() {
+                            model.isTurfHover = false;
+                            setState(() {});
+                          }),
+                          child: Container(
+                            height: 45,
+                            margin: EdgeInsets.symmetric(horizontal: 10),
+                            decoration: BoxDecoration(
+                              border:
+                                  Border.all(color: AppColors.darkBlueColor),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey,
+                                  blurRadius: 5.0,
+                                ),
+                              ],
+                              color: model.isTurfHover == true
+                                  ? AppColors.darkBlueColor
+                                  : AppColors.whiteColor,
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: Center(
+                              child: Text(
+                                'TURF',
+                                style: AppTextStyle.black18.copyWith(
+                                    color: model.isTurfHover == true
+                                        ? AppColors.whiteColor
+                                        : AppColors.blackColor),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
             Footer(),
           ],
         ),
@@ -490,11 +709,11 @@ class _HomeScreenState extends State<HomeScreen> implements HomeScreenView {
     return CarouselSlider(
       options: CarouselOptions(
           autoPlay: true,
-          height: 300.0,
+          height: context.isWebSiteScreen ? 300.0 : 200,
           scrollPhysics: NeverScrollableScrollPhysics(),
           disableCenter: true,
           aspectRatio: 0.4,
-          viewportFraction: 0.4),
+          viewportFraction: context.isWebSiteScreen ? 0.4 : 1),
       items: listData.map((i) {
         return Builder(
           builder: (BuildContext context) {

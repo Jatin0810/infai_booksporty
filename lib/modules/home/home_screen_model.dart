@@ -8,6 +8,8 @@ class HomeScreenModel {
   List alliesList;
   int selectedEventIndex;
   int selectedUpcomingEventIndex;
+  bool isEventHover;
+  bool isTurfHover;
   HomeScreenModel({
     required this.bannerImageList,
     required this.selectedEventIndex,
@@ -15,6 +17,8 @@ class HomeScreenModel {
     required this.trialImageList,
     required this.alliesList,
     required this.whyUsList,
+    required this.isEventHover,
+    required this.isTurfHover,
     required this.supportCategoriesList,
     required this.selectedUpcomingEventIndex,
     required this.trufImageList,
